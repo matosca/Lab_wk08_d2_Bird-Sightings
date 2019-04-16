@@ -12,7 +12,7 @@ Sightings.prototype.bindEvents = function () {
   });
 
   PubSub.subscribe('SightingFormView:bird-submitted', (evt) => {
-    this.postBird(evt.detail);
+    this.postSightings(evt.detail);
   });
 };
 
@@ -23,7 +23,7 @@ Sightings.prototype.getData = function () {
     })
     .catch(console.error);
 };
-Sightings.prototype.postBird = function (sighting) {
+Sightings.prototype.postSightings = function (sighting) {
   // const request = new Request(this.url);
   this.request.post(sighting)
     .then((sightings) => {
